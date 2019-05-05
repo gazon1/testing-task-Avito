@@ -8,9 +8,10 @@
 [[https://drive.google.com/drive/folders/1PzMQfrDTKmMbgHr0mJWMDfB3X9ZHsIxm?fbclid=IwAR1tGlzZVKwXIbNpt3tpjd4CuYPYN6Rk8bd2waYhmpc2WwYQZiZTVoNlPd0][Ссылка на данные]]
 
 ** Решение 
-Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption
-Итоговая модель - это стекинг xgboost и fastText. FastText обучен на объединенных строках desription + title.
-Его предсказания 5-ти самых вероятных категорий и их вероятности используются как фичи для обучения xgboost.
+Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption (см. файл Preprocessing.ipynb)
+Итоговая модель - это стекинг xgboost и fastText (см. файл Stacking_xgboost_of_fasttext.ipynb). FastText обучен на 
+объединенных строках desription + title. Его предсказания 5-ти самых вероятных категорий и их вероятности 
+используются как фичи для обучения xgboost.
 Кроме того, в xgboost идут фичи:
 - длина desciption
 - кол-во слов в desciption
@@ -18,6 +19,8 @@
 - цена одного слова
 - цена одной буквы
 - средняя длина одного слова
+
+Предсказания модели для тестовой выборки лежат в файле predictions_for_test_data.csv
 ** Оценка качества решения
 Посчитаны accuracy по каждому уровню иерахии(см. файл "Accuracy без разделения на уровни иерархии.txt") и
 accuracy без разделения на иерахии + их среднее (см. файл "Accuracy по каждому уровню иерархии.txt")
