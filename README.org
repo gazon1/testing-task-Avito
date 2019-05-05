@@ -7,10 +7,15 @@
 Для решения задачи можно использовать любые внешние модели, но не внешние данные. В случае сомнений по поводу возможности использования чего-либо напишите нам.
 
 [[https://start.avito.ru/][форма подачи заявки на стажировку]]
+
 ** Данные
+
 [[https://drive.google.com/drive/folders/1PzMQfrDTKmMbgHr0mJWMDfB3X9ZHsIxm?fbclid=IwAR1tGlzZVKwXIbNpt3tpjd4CuYPYN6Rk8bd2waYhmpc2WwYQZiZTVoNlPd0][Ссылка на данные от организаторов]]
+
 Код, обученные модели и все данные, как исходные, так и промежуточные, лежат на  [[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диске]]
 ** Решение 
+Чтобы запустить решение, нужно зайти на гугл диск и запустить ноутбуки
+из папки [[https://drive.google.com/drive/folders/1VXfzePT2B2NvB2bRI7-fsNY79y6atinQ][code]] в google collab
 
 Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption (см. файл [[https://nbviewer.jupyter.org/github/gazon1/testing-task-Avito/blob/master/Preprocessing.ipynb][Preprocessing.ipynb]])
 
@@ -26,10 +31,15 @@
 - цена одной буквы
 - средняя длина одного слова
 
-*** Описание файлов на [[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диске]]
-Предсказания модели для тестовой выборки лежат в файле [[https://drive.google.com/open?id=11ptY-XxOFG-lyIkWwPhYSZb3rH3wbwxp][Предсказания для тестовой выборки.csv в папке data]]
+*** Описание файлов на гугл диске
+[[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диск с решением и данными]]
+
+Предсказания модели для тестовой выборки лежат в файле [[https://drive.google.com/open?id=11ptY-XxOFG-lyIkWwPhYSZb3rH3wbwxp][Предсказания
+для тестовой выборки.csv в папке data]]
+
 Обученные в ходе решения модели fastText и xgboost - [[https://drive.google.com/drive/folders/1-OoPLjRWrCxeEaUX1O6AS9u7b7eMr-kG][в папке models]]
-Весь код - [[https://drive.google.com/drive/folders/1VXfzePT2B2NvB2bRI7-fsNY79y6atinQ][в папке code]] или здесь в репозитории
+
+Весь код - [[https://drive.google.com/drive/folders/1VXfzePT2B2NvB2bRI7-fsNY79y6atinQ][в папке code]]. Его копия также здесь в репозитории
 
 лемматизированные данные, из которых убрана пунктуация:
 - test_lemmatized.csv
