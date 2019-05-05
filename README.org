@@ -1,3 +1,4 @@
+
 * Задача
 Обучите классификатор, предсказывающий категорию объявления на Авито по его заголовку, описанию и цене. Метрика для оценки качества -- accuracy. Необходимо предоставить прокомментированный код (желательно на Python 2.x или 3.x, можно в Jupiter Notebook) для всех этапов решения задачи и результат скоринга файла test.csv с помощью предложенного классификатора (csv-файл с двумя столбцами: item_id, category_id).
 
@@ -7,12 +8,13 @@
 
 [[https://start.avito.ru/][форма подачи заявки на стажировку]]
 ** Данные
-[[https://drive.google.com/drive/folders/1PzMQfrDTKmMbgHr0mJWMDfB3X9ZHsIxm?fbclid=IwAR1tGlzZVKwXIbNpt3tpjd4CuYPYN6Rk8bd2waYhmpc2WwYQZiZTVoNlPd0][Ссылка на данные]]
-
+[[https://drive.google.com/drive/folders/1PzMQfrDTKmMbgHr0mJWMDfB3X9ZHsIxm?fbclid=IwAR1tGlzZVKwXIbNpt3tpjd4CuYPYN6Rk8bd2waYhmpc2WwYQZiZTVoNlPd0][Ссылка на данные от организаторов]]
+Код, обученные модели и все данные, как исходные, так и промежуточные, лежат на  [[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диске]]
 ** Решение 
-Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption (см. файл Preprocessing.ipynb)
 
-Итоговая модель - это стекинг xgboost и fastText (см. файл Stacking_xgboost_of_fasttext.ipynb). FastText обучен на 
+Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption (см. файл [[file:Preprocessing.ipynb][Preprocessing.ipynb]])
+
+Итоговая модель - это стекинг xgboost и fastText (см. файл [[file:Stacking_xgboost_of_fasttext.ipynb][Stacking_xgboost_of_fasttext.ipynb]]). FastText обучен на 
 объединенных строках desription + title. Его предсказания 5-ти самых вероятных категорий и их вероятности 
 используются как фичи для обучения xgboost.
 
@@ -24,9 +26,28 @@
 - цена одной буквы
 - средняя длина одного слова
 
-Предсказания модели для тестовой выборки лежат в файле predictions_for_test_data.csv
+*** Описание файлов на [[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диске]]
+Предсказания модели для тестовой выборки лежат в файле [[https://drive.google.com/open?id=11ptY-XxOFG-lyIkWwPhYSZb3rH3wbwxp][Предсказания для тестовой выборки.csv в папке data]]
+Обученные в ходе решения модели fastText и xgboost - [[https://drive.google.com/drive/folders/1-OoPLjRWrCxeEaUX1O6AS9u7b7eMr-kG][в папке models]]
+Весь код - [[https://drive.google.com/drive/folders/1VXfzePT2B2NvB2bRI7-fsNY79y6atinQ][в папке code]] или здесь в репозитории
 
-Все преобразования данных в ходе решения и сохраненные модели можно скачать с [[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диска]]
+лемматизированные данные, из которых убрана пунктуация:
+- test_lemmatized.csv
+- train_lemmatized.csv
+- preprocessed_train.csv
+- preprocessed_test.csv
+
+предобработанные данные для fasttest:
+- fasttext_input.train.txt
+- fasttext_input.val.txt
+- fasttext_input.txt
+- fasttext_test.txt
+
+данные для обучения xgboost (фичи на тексте, цене + предсказания
+fasttext):
+- xgb_test_data.csv
+- xgb_val_data.csv
+- xgb_train_data.csv
 
 ** Оценка качества решения
 Посчитаны accuracy по каждому уровню иерахии(см. файл "Accuracy без разделения на уровни иерархии.txt") и
