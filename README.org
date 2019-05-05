@@ -12,9 +12,9 @@
 Код, обученные модели и все данные, как исходные, так и промежуточные, лежат на  [[https://drive.google.com/drive/folders/1sM1qLLDgXXZ1h9jNhIZEzQ47RHqYi4bj?usp=sharing][гугл диске]]
 ** Решение 
 
-Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption (см. файл [[file:Preprocessing.ipynb][Preprocessing.ipynb]])
+Предобработка заключалась в лемматизации и удалении пунктуации из title и desciption (см. файл [[https://nbviewer.jupyter.org/github/gazon1/testing-task-Avito/blob/master/Preprocessing.ipynb][Preprocessing.ipynb]])
 
-Итоговая модель - это стекинг xgboost и fastText (см. файл [[file:Stacking_xgboost_of_fasttext.ipynb][Stacking_xgboost_of_fasttext.ipynb]]). FastText обучен на 
+Итоговая модель - это стекинг xgboost и fastText (см. файл [[https://nbviewer.jupyter.org/github/gazon1/testing-task-Avito/blob/master/Stacking_xgboost_of_fasttext.ipynb][Stacking_xgboost_of_fasttext.ipynb]]). FastText обучен на 
 объединенных строках desription + title. Его предсказания 5-ти самых вероятных категорий и их вероятности 
 используются как фичи для обучения xgboost.
 
